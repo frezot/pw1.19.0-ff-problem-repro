@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  tests:
+    image: "mcr.microsoft.com/playwright:v1.19.0"
+    working_dir: /opt/uitests
+    command: >
+      sh -c "
+      npm install &&
+      /bin/bash"
+
+    volumes:
+      - "./:/opt/uitests/"
+      - node_modules:/opt/uitests/node_modules
+
+volumes:
+  node_modules:
